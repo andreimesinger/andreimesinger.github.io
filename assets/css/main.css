@@ -33,6 +33,11 @@ body {
 	line-height: 1;
 }
 
+/* Ensure top/bio paragraph uses the requested lighter color */
+#top .col-8 p {
+	color: #aaa;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -100,7 +105,7 @@ input, select, textarea {
 	body, input, textarea, select {
 		font-family: 'Open Sans', sans-serif;
 		line-height: 1.85em;
-		color: #888;
+		color: #aaa; /* lighter text color */
 		font-weight: 300;
 		font-size: 13pt;
 	}
