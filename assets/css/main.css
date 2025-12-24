@@ -2735,3 +2735,36 @@ html body #Research .box.style2.is-hover-debug .image.featured img {
 				z-index: 2;
 			}
 		}
+
+		/* Stronger small-screen stacking for the home/top section to avoid overlap */
+		@media screen and (max-width: 736px) {
+			#top .row {
+				margin-top: 0 !important;
+				margin-left: 0 !important;
+				display: block !important;
+			}
+
+			#top .row > * {
+				width: 100% !important;
+				padding: 0.4rem 0 !important;
+				box-sizing: border-box;
+			}
+
+			#top .col-4, #top .col-8 {
+				width: 100% !important;
+				float: none !important;
+			}
+
+			/* ensure the image is small and separated from the title */
+			#top .image.fit {
+				max-width: 160px;
+				margin: 0.5rem auto 0.8rem auto;
+				display: block;
+			}
+
+			#top header {
+				margin-top: 0.6rem;
+				position: relative;
+				z-index: 3;
+			}
+		}
