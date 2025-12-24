@@ -2708,3 +2708,30 @@ html body #Research .box.style2.is-hover-debug .image.featured img {
 					}
 
 	}
+
+		/* Small-screen fix: prevent profile image from overlapping header */
+		@media screen and (max-width: 736px) {
+			/* make the home/profile image smaller and centered */
+			#top .image.fit {
+				max-width: 180px;
+				margin: 0.25rem auto 0.75rem auto;
+				display: block;
+			}
+
+			#top .image.fit img {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+
+			/* add a little top padding to the left column to avoid visual overlap */
+			#top .col-4 {
+				padding-top: 0.5rem;
+			}
+
+			/* ensure the header sits above the image if z-indexing occurs */
+			#top header {
+				position: relative;
+				z-index: 2;
+			}
+		}
