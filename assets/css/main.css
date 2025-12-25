@@ -33,6 +33,17 @@ body {
 	line-height: 1;
 }
 
+/* Darken text inside the Publications area (wrapper style3) */
+.wrapper.style3 {
+	color: #444; /* darker body text for this section */
+}
+.wrapper.style3 p,
+.wrapper.style3 .pub-stats,
+.wrapper.style3 .books,
+.wrapper.style3 .book-entry {
+	color: inherit;
+}
+
 /* Ensure top/bio paragraph uses the requested lighter color */
 #top .col-8 p {
 	color: #aaa;
