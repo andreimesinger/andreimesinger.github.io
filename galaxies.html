@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Galaxies during Reionization</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+            <style>
+            	/* Slightly increase Publications stats size (scoped) */
+            	#Publications .pub-stats { font-size: 1.12rem; line-height: 1.45; }
+            	/* Reduce space after the Publications header */
+            	#Publications header { margin-bottom: 1rem; }
+            	/* Books block: center-align and tidy spacing */
+            	#Publications .books { text-align: center; margin-top: 0.6rem; }
+            	#Publications .book-entry { margin: 0 0 0.6rem 0; }
+
+            	/* Apply background image only to the first header inside #Research
+            	   and extend it up beneath the nav by matching the body's top padding. */
+            	#Research > .container > header:first-of-type {
+            		position: relative;
+            		background-image: url('images/LC21cm.jpg');
+            		background-size: cover;
+            		background-position: center top;
+            		background-repeat: no-repeat;
+            		/* make the background span the full viewport width without using transform */
+            		width: 100vw;
+            		margin-left: calc(50% - 50vw);
+            		margin-right: calc(50% - 50vw);
+            		/* pull the header up under the nav (body has padding-top:3.5em) */
+            		margin-top: -7.8em;
+            		padding: calc(3.5em + 2rem) 1rem 2.5rem 1rem;
+            		color: #fff;
+            		overflow: hidden;
+            	}
+
+            	#Research > .container > header:first-of-type::before {
+            		content: "";
+            		position: absolute;
+            		inset: 0;
+            		background: rgba(0,0,0,0.25); /* low-opacity overlay */
+            		pointer-events: none;
+            	}
+
+            	#Research > .container > header:first-of-type > * {
+            		position: relative;
+            		z-index: 2;
+            	}
+
+			/* Prevent small remaining horizontal overflow only on this page */
+			html, body { overflow-x: hidden; height: 100%; }
+
+			/* Ensure footer reaches the bottom: make page a column flex layout (scoped to this file) */
+			body { display: flex; flex-direction: column; min-height: 100vh; }
+			#Research { flex: 1 0 auto; }
+
+			/* Footer background (full-bleed) with subtle overlay */
+			footer {
+				position: relative;
+				background-image: url('images/footerLC21cm.jpg');
+				background-size: cover;
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				width: 100vw;
+				margin-left: calc(50% - 50vw);
+				margin-right: calc(50% - 50vw);
+				/* reduce footer height while keeping background visible */
+				padding: 2rem 1rem 1.25rem 1rem;
+				margin-top: -8em;
+				min-height: 20vh;
+				color: #fff;
+			}
+
+			footer::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: rgba(0,0,0,0.12); /* lower-transparency dark overlay */
+				pointer-events: none;
+			}
+
+			footer ul#copyright {
+				position: relative;
+				z-index: 2;
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+            </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="index.html#top">Main</a></li>
+					<li><a href="index.html#work">Bio</a></li>
+					<li class="has-submenu">
+						<a href="index.html#Research">Research</a>
+						<ul class="submenu">
+							<li><a href="#Research">Highlights</a></li>
+							<li><a href="21cmFAST.html">21cmFAST</a></li>
+							<li><a href="galaxies.html">High-z Galaxies</a></li>
+							<li><a href="21cm.html">Cosmic 21cm</a></li>
+							<li><a href="Lya.html">Lyman-alpha</a></li>
+							<li><a href="inference.html">Inference and ML</a></li>
+							<li><a href="dark.html">Dark Matter</a></li>
+						</ul>
+					</li>
+					<li><a href="index.html#Publications">Publications</a></li>
+				</ul>
+			</nav>
+
+		<!-- Research -->
+			<article id="Research" class="wrapper style4">
+				<div class="container">
+					<header>
+						<h2>The cosmic 21cm signal</h2>
+					</header>
+						<header>
+UNDER CONSTRUCTION
+</header>
+				</div>
+			</article>
+				
+			<footer>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<!-- Debug helper: add `.is-hover-debug` on mouseenter to test hover styles -->
+			<script>
+			document.addEventListener('DOMContentLoaded', function(){
+			  var boxes = document.querySelectorAll('#Research .box.style2');
+			  // Preload per-card GIFs declared in `data-gif-src`
+			  var gifImages = document.querySelectorAll('#Research .box.style2 .image.featured img[data-gif-src]');
+			  gifImages.forEach(function(i){ try{ var p = new Image(); p.src = i.dataset.gifSrc; }catch(e){} });
+
+			boxes.forEach(function(b){
+				var img = b.querySelector('.image.featured img');
+				b.addEventListener('mouseenter', function(){
+					b.classList.add('is-hover-debug');
+					try {
+						if(img && img.dataset.gifSrc){
+							// Load GIF first in memory to avoid showing a broken image
+							var loader = new Image();
+							loader.onload = function(){
+								try{
+									if(!img.dataset._origSrc) img.dataset._origSrc = img.src;
+									img.src = loader.src;
+									// JS enlargement
+									img.style.transition = img.style.transition || 'transform 320ms cubic-bezier(.2,.7,.2,1)';
+									img.style.willChange = 'transform';
+									img.style.transform = 'scale(1.12)';
+									img.dataset._jsEnlarged = '1';
+									img.dataset._gifActive = '1';
+								}catch(e){}
+							};
+							loader.onerror = function(){ /* fail silently if GIF missing */ };
+							loader.src = img.dataset.gifSrc;
+						}
+					} catch(e){}
+				});
+				b.addEventListener('mouseleave', function(){
+					b.classList.remove('is-hover-debug');
+					try {
+						if(img && img.dataset._jsEnlarged){ img.style.transform = ''; delete img.dataset._jsEnlarged; }
+						if(img && img.dataset._gifActive && img.dataset._origSrc){ img.src = img.dataset._origSrc; delete img.dataset._origSrc; delete img.dataset._gifActive; }
+					} catch(e){}
+				});
+			});
+			});
+			</script>
+
+	</body>
+</html>

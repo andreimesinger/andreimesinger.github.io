@@ -10,15 +10,36 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-            <style>
-            	/* Slightly increase Publications stats size (scoped) */
-            	#Publications .pub-stats { font-size: 1.12rem; line-height: 1.45; }
-            	/* Reduce space after the Publications header */
-            	#Publications header { margin-bottom: 1rem; }
-            	/* Books block: center-align and tidy spacing */
-            	#Publications .books { text-align: center; margin-top: 0.6rem; }
-            	#Publications .book-entry { margin: 0 0 0.6rem 0; }
-            </style>
+			<style>
+				/* Slightly increase Publications stats size (scoped) */
+				#Publications .pub-stats { font-size: 1.12rem; line-height: 1.45; }
+				/* Reduce space after the Publications header */
+				#Publications header { margin-bottom: 1rem; }
+				/* Books block: center-align and tidy spacing */
+				#Publications .books { text-align: center; margin-top: 0.6rem; }
+				#Publications .book-entry { margin: 0 0 0.6rem 0; }
+
+				/* Make bold text inside Research wrapper white */
+				#Research b,
+				.wrapper.style4 b {
+					color: #fff !important;
+				}
+
+				/* Make bold text inside Publications black (override site-wide white) */
+				#Publications .pub-stats b,
+				#Publications .pub-stats strong,
+				#Publications b,
+				#Publications strong {
+					color: #000 !important;
+				}
+
+				/* Make bold text inside Bio (#work) black as requested */
+				#work b,
+				#work strong,
+				#work .positions .pos-desc strong {
+					color: #000 !important;
+				}
+			</style>
 	</head>
 	<body class="is-preload">
 
@@ -27,7 +48,18 @@
 				<ul class="container">
 					<li><a href="#top">Main</a></li>
 					<li><a href="#work">Bio</a></li>
-					<li><a href="#Research">Research</a></li>
+					<li class="has-submenu">
+						<a href="#Research">Research</a>
+						<ul class="submenu">
+							<li><a href="index.html#Research">Highlights</a></li>
+							<li><a href="21cmFAST.html">21cmFAST</a></li>
+							<li><a href="galaxies.html">High-z Galaxies</a></li>
+							<li><a href="21cm.html">Cosmic 21cm</a></li>
+							<li><a href="Lya.html">Lyman-alpha</a></li>
+							<li><a href="inference.html">Inference</a></li>
+							<li><a href="dark.html">Dark Matter</a></li>
+						</ul>
+					</li>
 					<li><a href="#Publications">Publications</a></li>
 				</ul>
 			</nav>
@@ -109,15 +141,18 @@
 				<div class="container">
 					<header>
 						<h2>Research highlights</h2>
-						<p>I am a theorist working on the dawn of the first astrophysical objects and the epoch of cosmic reionization.  The first stars, black holes and eventually galaxies condensed into Dark Matter structures a few hundred million years after the Big Bang, ending the Cosmic Dark Ages.  The light from these galaxies spread out, eventually heating and ionizing almost all atoms, culminating in the last phase chage of our Universe: the Epoch of Reionization.
-							These cosmic milestones span the bulk of our observable Universe, with current and upcoming telescopes providing datasets of unmatched scientific potential.  My research aims to answer, <em>“What can we learn about the first galaxies and physical cosmology from these observations?”</em>   
-							I focus on the interplay between galaxies and the intergalactic medium (IGM).  The countless unseen galaxies, too faint to be seen with modern telescopes, imprint their properties in the IGM through inhomogeneous cosmic radiation fields. 
-							 To infer these galaxy properties, we construct bespoke forward-models of multi-wavelength datasets, interpreting them with state-of-the-art techniques.  This requires a broad understanding of theory, observations, and data analysis.</p>
-							 
+						<p>I am a theorist studying the emergence of the first astrophysical objects and the epoch of cosmic reionization.  A million years after the Big Bang, the Universe was cold, dark and nearly devoid of structure.
+							These <b>Cosmic Dark Ages</b> ended roughly a hundred million years later with the <b>Cosmic Dawn</b>, when the first stars, black holes, and eventually galaxies formed. Radiation from these early galaxies propagated through space, heating and ionizing the surrounding gas and culminating in the last major phase transition of the Universe: the <b>Epoch of Reionization</b>.
+							
+						</p><p>	These cosmic milestones span the bulk of our observable Universe, with current and upcoming telescopes providing datasets of unmatched scientific potential.  My research aims to answer, <b><em>“What can we learn about the first galaxies and fundamental cosmology from these observations?”</em></b>
+
+							</p><p>
+						A central focus of my work is the interplay between galaxies and the cosmic web that connects them, where most of the Universe’s matter resides - the intergalactic medium (IGM). Although the majority of early galaxies are too faint to be directly observed, they leave measurable imprints on the IGM through spatially varying radiation fields. To extract this information, my collaborators and I develop tailored forward models of multi-wavelength observations and interpret them using state-of-the-art statistical techniques. This requires a broad and integrated understanding of theory, observations, and data analysis.
+						</p>	 
 						<br><p> Our research has been at the forefront of many different areas of reionization and cosmic dawn studies.  
 							My <a href="https://ui.adsabs.harvard.edu/abs/2004ApJ...613...23M/abstract" target="_blank" rel="noopener noreferrer">first paper</a> pioneered the use of IGM damping wings in quasar spectra to study the progress of reionization.  
-							I was among the first to realize <a href="https://ui.adsabs.harvard.edu/abs/2010MNRAS.407.1328M/abstract" target="_blank" rel="noopener noreferrer">reionization could have ended late</a>, introducing a robust probe of reionization: the <em>Dark Pixel Fraction</em>.  
-							The subsequent application of these techniques to quasar spectra resulted in the <a href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.447..499M/abstract" target="_blank" rel="noopener noreferrer">only model-independent upper limits of the IGM neutral fraction</a> 
+							I was among the first to realize <a href="https://ui.adsabs.harvard.edu/abs/2010MNRAS.407.1328M/abstract" target="_blank" rel="noopener noreferrer">reionization could have ended late</a>, introducing a robust probe of reionization: the <a href="https://ui.adsabs.harvard.edu/abs/2010MNRAS.407.1328M/abstract" target="_blank" rel="noopener noreferrer"><em>Dark Pixel Fraction</em></a>.  
+							The subsequent application of these techniques to quasar spectra resulted in the <a href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.447..499M/abstract" target="_blank" rel="noopener noreferrer">only model-independent upper limits on the fraction of the IGM remaining neutral</a> 
 							as well as the <a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.466.4239G/abstract" target="_blank" rel="noopener noreferrer">first-ever detection of on-going reionization!</a>   Using state-of-the-art simulations and data analysis, we recently managed to nail down the 
 							<a href="https://ui.adsabs.harvard.edu/abs/2025PASA...42...49Q/abstract" target="_blank" rel="noopener noreferrer">
 							timing of the late stages of reionization with percent-level accuracy</a>, 
@@ -136,11 +171,11 @@
 							could heat the IGM during the Cosmic Dawn,
 							as well as showing how the expansion of the Universe at redshifs beyond ten could be measured from  <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.3657M/abstract" target="_blank" rel="noopener noreferrer">acoustic oscilations.</a></p>							
 						<br><p>
-							My research was awarded the NASA Hubble prize fellowship in 2008, a prestigious Starting Grant Award from the European Research Council (ERC) in 2015, a PRIN award (national PI) from the Italian Ministry of Universities and Research in 2023, among other recognitions.  
-							I am deeply involved in current efforts to detect the cosmic 21-cm signal, serving on the executive board of the Hydrogen Epoch of Reionization Array 
+							My research was awarded the <b>NASA Hubble prize fellowship</b> in 2008, a prestigious <b>Starting Grant Award</b> from the European Research Council (ERC) in 2015, a 	<b>PRIN award</b> (national PI) from the Italian Ministry of Universities and Research in 2023, among other recognitions.  
+							I am deeply involved in current efforts to detect the cosmic 21-cm signal, serving on the executive board of the <b>Hydrogen Epoch of Reionization Array</b> 
 							<a href="https://reionization.org" target="_blank" rel="noopener noreferrer">	
 							(HERA)</a>
-							 collaboration as well as being on the board of the Epoch of Reionization Science Team for the Square Kilometer Array 
+							 collaboration as well as being on the board of the Epoch of Reionization Science Team for the <b>Square Kilometer Array</b>	 
 							 <a href="https://www.skao.int/en/explore/telescopes/ska-low" target="_blank" rel="noopener noreferrer">
 							 (SKA)</a> telescope.
 							More details about various research topics can be found below.</p>
@@ -164,8 +199,8 @@
 						</div>
 						<div class="col-4 col-6-medium col-12-small">
 							<article class="box style2">
-							<a href="images/slice.gif" target="_blank" rel="noopener noreferrer" class="image featured"><img src="images/slice.jpg" data-gif-src="images/slice.gif" alt="" /></a>
-								<h3><a href="#" target="_blank" rel="noopener noreferrer">The cosmic 21cm signal</a></h3>
+							<a href="21cm.html" target="_blank" rel="noopener noreferrer" class="image featured"><img src="images/slice.jpg" data-gif-src="images/slice.gif" alt="" /></a>
+								<h3><a href="21cm.html" target="_blank" rel="noopener noreferrer">The cosmic 21cm signal</a></h3>
 								<p>The most powerful probe of the first billion years, we will eventually make a 3D map our observable Universe using the 21cm transition of hydrogen</p>
 							</article>
 						</div>

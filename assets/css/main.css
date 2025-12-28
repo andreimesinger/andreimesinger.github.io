@@ -116,7 +116,7 @@ input, select, textarea {
 	body, input, textarea, select {
 		font-family: 'Open Sans', sans-serif;
 		line-height: 1.85em;
-		color: #aaa; /* lighter text color */
+		color: #c8c7c7; /* lighter text color */
 		font-weight: 300;
 		font-size: 13pt;
 	}
@@ -139,8 +139,8 @@ input, select, textarea {
 		}
 
 	b, strong {
-		font-weight: 600;
-		color: #3e3e3e;
+	    font-weight: 600;
+	    color: #fff !important;
 	}
 
 	i, em {
@@ -238,6 +238,27 @@ input, select, textarea {
 	text-align: left;
 	margin-left: 1.25em; /* indent the bullets slightly under the header */
 }
+
+/* Navigation submenu (simple dropdown) */
+#nav ul.container { position: relative; }
+#nav ul.container li { position: relative; }
+#nav ul.container li .submenu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: rgba(0,0,0,0.85);
+	padding: 0.4rem 0;
+	min-width: 10rem;
+	z-index: 9999;
+}
+#nav ul.container li .submenu li { display: block; }
+#nav ul.container li .submenu li a {
+	display: block;
+	padding: 0.45rem 1rem;
+	color: #fff;
+}
+#nav ul.container li:hover > .submenu { display: block; }
 
 /* Positions list: two-column year / description layout */
 .positions {
@@ -416,7 +437,7 @@ input, select, textarea {
 	text-align: left;
 	max-width: 90ch; /* increased line length for wider layouts */
 	margin: 0.6rem auto 0; /* centered block with left-aligned text */
-	color: #bbb; /* slightly lighter gray for header paragraphs */
+	color: #dadada; /* slightly lighter gray for header paragraphs */
 	}
 
 @media screen and (max-width: 736px) {
@@ -2124,7 +2145,7 @@ input, select, textarea {
 
 		.wrapper.style4 {
 			background-color: #303030;
-			color: #999;
+			color: #c7c6c6;
 			text-shadow: -1px -1px 0px #181818;
 		}
 

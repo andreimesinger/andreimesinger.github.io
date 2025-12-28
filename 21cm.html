@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Andrei Mesinger</title>
+		<title>The cosmic 21cm signal</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,6 +18,92 @@
             	/* Books block: center-align and tidy spacing */
             	#Publications .books { text-align: center; margin-top: 0.6rem; }
             	#Publications .book-entry { margin: 0 0 0.6rem 0; }
+
+            	/* Apply background image only to the first header inside #Research
+            	   and extend it up beneath the nav by matching the body's top padding. */
+            	#Research > .container > header:first-of-type {
+            		position: relative;
+            		background-image: url('images/LC21cm.jpg');
+            		background-size: cover;
+            		background-position: center top;
+            		background-repeat: no-repeat;
+            		/* make the background span the full viewport width without using transform */
+            		width: 100vw;
+            		margin-left: calc(50% - 50vw);
+            		margin-right: calc(50% - 50vw);
+            		/* pull the header up under the nav (body has padding-top:3.5em) */
+            		margin-top: -7.8em;
+            		padding: calc(3.5em + 2rem) 1rem 2.5rem 1rem;
+            		color: #fff;
+            		overflow: hidden;
+            	}
+
+            	#Research > .container > header:first-of-type::before {
+            		content: "";
+            		position: absolute;
+            		inset: 0;
+            		background: rgba(0,0,0,0.25); /* low-opacity overlay */
+            		pointer-events: none;
+            	}
+
+            	#Research > .container > header:first-of-type > * {
+            		position: relative;
+            		z-index: 2;
+            	}
+
+			/* Prevent small remaining horizontal overflow only on this page */
+			html, body { overflow-x: hidden; height: 100%; }
+
+			/* Ensure footer reaches the bottom: make page a column flex layout (scoped to this file) */
+			body { display: flex; flex-direction: column; min-height: 100vh; }
+			#Research { flex: 1 0 auto; }
+
+			/* Footer background (full-bleed) with subtle overlay */
+			footer {
+				position: relative;
+				background-image: url('images/footerLC21cm.jpg');
+				background-size: cover;
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				width: 100vw;
+				margin-left: calc(50% - 50vw);
+				margin-right: calc(50% - 50vw);
+				/* reduce footer height while keeping background visible */
+				padding: 2rem 1rem 1.25rem 1rem;
+				margin-top: -8em;
+				min-height: 20vh;
+				color: #fff;
+			}
+
+			footer::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: rgba(0,0,0,0.12); /* lower-transparency dark overlay */
+				pointer-events: none;
+			}
+
+			footer ul#copyright {
+				position: relative;
+				z-index: 2;
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+
+			/* Media list: left-align and show bullets for the images/movies list */
+			.media-list {
+				list-style: disc;
+				list-style-position: outside;
+				padding-left: 3.8rem; /* indent the list */
+				margin-left: 0;
+				text-align: left;
+			}
+			.media-list li {
+				margin-bottom: 0.6rem;
+			}
             </style>
 	</head>
 	<body class="is-preload">
@@ -25,209 +111,68 @@
 		<!-- Nav -->
 			<nav id="nav">
 				<ul class="container">
-					<li><a href="#top">Main</a></li>
-					<li><a href="#work">Bio</a></li>
-					<li><a href="#Research">Research</a></li>
-					<li><a href="#Publications">Publications</a></li>
+					<li><a href="index.html#top">Main</a></li>
+					<li><a href="index.html#work">Bio</a></li>
+					<li class="has-submenu">
+						<a href="index.html#Research">Research</a>
+						<ul class="submenu">
+							<li><a href="index.html#Research">Highlights</a></li>
+							<li><a href="21cmFAST.html">21cmFAST</a></li>
+							<li><a href="galaxies.html">High-z Galaxies</a></li>
+							<li><a href="21cm.html">Cosmic 21cm</a></li>
+							<li><a href="Lya.html">Lyman-alpha</a></li>
+							<li><a href="inference.html">Inference</a></li>
+							<li><a href="dark.html">Dark Matter</a></li>
+						</ul>
+					</li>
+					<li><a href="index.html#Publications">Publications</a></li>
 				</ul>
 			</nav>
-
-		<!-- Home -->
-			<article id="top" class="wrapper style4">
-				<div class="container">
-					<div class="row">
-						<div class="col-4 col-5-large col-12-medium">
-							<span class="image fit"><img src="images/andrei_suit_square.png" alt="" /></span>
-						</div>
-						<div class="col-8 col-7-large col-12-medium">
-							<header>
-								<h1 style="color:#fff;"><strong style="color:inherit;">Andrei Mesinger</strong></h1>
-							</header>
-							<p>Full Professor of Astrophysics and Cosmology,<br>
-							European Research Council Laureate,<br>
-							Department of Physics and Astronomy, University of Catania<br>
-							Email: andrei 'dot' mesinger 'at' unict 'dot' it</p>
-							<a href="https://www.dfa.unict.it/curriculum_docenti/251.pdf?251221" class="button  scrolly" target="_blank" rel="noopener noreferrer">CV</a>
-						</div>
-					</div>
-				</div>
-			</article>
-		
-		<!-- Bio -->
-			<article id="work" class="wrapper style2">
-				<div class="container">
-					<header>
-						<h2>Professional & Educational Positions</h2>
-					</header>
-					<ul class="positions">
-						<li>
-							<span class="pos-year">2025 — Present</span>
-							<span class="pos-desc"><strong>Full Professor</strong>, Department of Physics and Astronomy, University of Catania</span>
-						</li>
-						<li>
-							<span class="pos-year">2020 — 2025</span>
-							<span class="pos-desc"><strong>Associate Professor</strong>, Scuola Normale Superiore di Pisa</span>
-						</li>
-						<li>
-							<span class="pos-year">2017 — 2020</span>
-							<span class="pos-desc"><strong>Senior Research Professor</strong> (RTD-b chiamata diretta ERC StG), Scuola Normale Superiore di Pisa</span>
-						</li>
-						<li>
-							<span class="pos-year">2011 — 2017</span>
-							<span class="pos-desc"><strong>Junior Research Professor</strong> (JRP), Scuola Normale Superiore di Pisa</span>
-						</li>
-						<li>
-							<span class="pos-year">2008 — 2011</span>
-							<span class="pos-desc"><strong>Hubble Fellow</strong>, Department of Astrophysical Sciences, Princeton Univ.</span>
-						</li>
-						<li>
-							<span class="pos-year">2006 — 2008</span>
-							<span class="pos-desc"><strong>Postdoctoral Researcher</strong>, Physics Department, Yale University and UCLA</span>
-						</li>
-						<li>
-							<span class="pos-year">2006</span>
-							<span class="pos-desc"><strong>Ph.D. in Astronomy</strong>, Columbia University, <em> With Distinction </em>— Thesis: <em>Probing Reionization and Early Structure Formation</em></span>
-						</li>
-						<li>
-							<span class="pos-year">2005</span>
-							<span class="pos-desc"><strong>M.Sc. in Astronomy</strong>, Columbia University</span>
-						</li>						<li>
-							<span class="pos-year">2002</span>
-							<span class="pos-desc"><strong>B.S. in Astronomy</strong>, Univ. of Maryland, <em>Cum Laude</em></span>
-						</li>
-						</li>						<li>
-							<span class="pos-year">2002</span>
-							<span class="pos-desc"><strong>B.S. in Computer Engineering</strong>, Univ. of Maryland, <em>Magna Cum Laude</em></span>
-						</li>
-					</ul>
-				</div>
-			</article>
-		
 
 		<!-- Research -->
 			<article id="Research" class="wrapper style4">
 				<div class="container">
 					<header>
-						<h2>Research highlights</h2>
-						<p>I am a theorist working on the dawn of the first astrophysical objects and the epoch of cosmic reionization.  The first stars, black holes and eventually galaxies condensed into Dark Matter structures a few hundred million years after the Big Bang, ending the Cosmic Dark Ages.  The light from these galaxies spread out, eventually heating and ionizing almost all atoms, culminating in the last phase chage of our Universe: the Epoch of Reionization.
-							These cosmic milestones span the bulk of our observable Universe, with current and upcoming telescopes providing datasets of unmatched scientific potential.  My research aims to answer, <em>“What can we learn about the first galaxies and physical cosmology from these observations?”</em>   
-							I focus on the interplay between galaxies and the intergalactic medium (IGM).  The countless unseen galaxies, too faint to be seen with modern telescopes, imprint their properties in the IGM through inhomogeneous cosmic radiation fields. 
-							 To infer these galaxy properties, we construct bespoke forward-models of multi-wavelength datasets, interpreting them with state-of-the-art techniques.  This requires a broad understanding of theory, observations, and data analysis.</p>
-							 
-						<br><p> Our research has been at the forefront of many different areas of reionization and cosmic dawn studies.  
-							My <a href="https://ui.adsabs.harvard.edu/abs/2004ApJ...613...23M/abstract" target="_blank" rel="noopener noreferrer">first paper</a> pioneered the use of IGM damping wings in quasar spectra to study the progress of reionization.  
-							I was among the first to realize <a href="https://ui.adsabs.harvard.edu/abs/2010MNRAS.407.1328M/abstract" target="_blank" rel="noopener noreferrer">reionization could have ended late</a>, introducing a robust probe of reionization: the <em>Dark Pixel Fraction</em>.  
-							The subsequent application of these techniques to quasar spectra resulted in the <a href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.447..499M/abstract" target="_blank" rel="noopener noreferrer">only model-independent upper limits of the IGM neutral fraction</a> 
-							as well as the <a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.466.4239G/abstract" target="_blank" rel="noopener noreferrer">first-ever detection of on-going reionization!</a>   Using state-of-the-art simulations and data analysis, we recently managed to nail down the 
-							<a href="https://ui.adsabs.harvard.edu/abs/2025PASA...42...49Q/abstract" target="_blank" rel="noopener noreferrer">
-							timing of the late stages of reionization with percent-level accuracy</a>, 
-							using Lyman alpha forest data from quasar spectra.
-							We developed the widely-used cosmological simulation code, <a href="https://ui.adsabs.harvard.edu/abs/2011MNRAS.411..955M/abstract" target="_blank" rel="noopener noreferrer">21cmFAST</a>,  whose accuracy and efficiency allows us to sample a wide parameter space of astro+cosmo uncertainties.  
-							We pioneered <a href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.449.4246G/abstract" target="_blank" rel="noopener noreferrer">Bayesian inference from tomographic reionization data</a>, combined with <a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.484..933P/abstract" target="_blank" rel="noopener noreferrer">multi-tracer inference</a>: an approach that has become standard when interpreting current <a href="https://ui.adsabs.harvard.edu/abs/2022ApJ...924...51A/abstract" target="_blank" rel="noopener noreferrer">21cm power spectrum upper limits</a>.  
-							We were among the first to introduce <a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.524.4239P/abstract" target="_blank" rel="noopener noreferrer">simulation-based inference</a> to the field of 21cm cosmology.  
-							We also worked on the Dark Sector of Cosmology: quantifying how alternatives to Cold Dark Matter imprint in the 
-							<a href="https://ui.adsabs.harvard.edu/abs/2014MNRAS.438.2664S/abstract" target="_blank" rel="noopener noreferrer">the cosmic 21cm signal</a>,  <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.507.3046R/abstract" target="_blank" rel="noopener noreferrer">galaxy luminosity functions</a>, 
-							how Dark Matter 
-							<a href="https://ui.adsabs.harvard.edu/abs/2014JCAP...11..024E/abstract" target="_blank" rel="noopener noreferrer">
-							annihilations</a>
-							and 
-							<a href="https://ui.adsabs.harvard.edu/abs/2024JCAP...01..005F/abstract" target="_blank" rel="noopener noreferrer">
-							decay</a> 
-							could heat the IGM during the Cosmic Dawn,
-							as well as showing how the expansion of the Universe at redshifs beyond ten could be measured from  <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.3657M/abstract" target="_blank" rel="noopener noreferrer">acoustic oscilations.</a></p>							
-						<br><p>
-							My research was awarded the NASA Hubble prize fellowship in 2008, a prestigious Starting Grant Award from the European Research Council (ERC) in 2015, a PRIN award (national PI) from the Italian Ministry of Universities and Research in 2023, among other recognitions.  
-							I am deeply involved in current efforts to detect the cosmic 21-cm signal, serving on the executive board of the Hydrogen Epoch of Reionization Array 
-							<a href="https://reionization.org" target="_blank" rel="noopener noreferrer">	
-							(HERA)</a>
-							 collaboration as well as being on the board of the Epoch of Reionization Science Team for the Square Kilometer Array 
-							 <a href="https://www.skao.int/en/explore/telescopes/ska-low" target="_blank" rel="noopener noreferrer">
-							 (SKA)</a> telescope.
-							More details about various research topics can be found below.</p>
-							
-							
-						</header>
-					<div class="row research-grid">
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="images/frame_box.gif" target="_blank" rel="noopener noreferrer" class="image featured"><img src="images/frame_box.jpg" data-gif-src="images/frame_box.gif" alt="" /></a>
-								<h3><a href="#" target="_blank" rel="noopener noreferrer">Simulating the early Universe with <em>21cmFAST</em></a></h3>
-								<p>Efficient, accurate, publicly-available simulation code to compute cosmic fields during the first billion years</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" target="_blank" rel="noopener noreferrer" class="image featured"><img src="images/galaxy_cube.jpeg" alt="" /></a>
-								<h3><a href="#" target="_blank" rel="noopener noreferrer">High-redshift galaxies</a></h3>
-								<p>A "universal language" to characterize high redshift galaxies, in order to infer their properties from data</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-							<a href="images/slice.gif" target="_blank" rel="noopener noreferrer" class="image featured"><img src="images/slice.jpg" data-gif-src="images/slice.gif" alt="" /></a>
-								<h3><a href="#" target="_blank" rel="noopener noreferrer">The cosmic 21cm signal</a></h3>
-								<p>The most powerful probe of the first billion years, we will eventually make a 3D map our observable Universe using the 21cm transition of hydrogen</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-							<a href="https://arxiv.org/pdf/1606.00441" target="_blank" rel="noopener noreferrer" class="image featured"><img src="images/Lya.jpg" alt="" /></a>
-								<h3><a href="#" target="_blank" rel="noopener noreferrer">Spectral imprints of cosmic reionization</a></h3>
-								<p>Using the Lyman alpha line to measure the ionization state of the IGM</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-								<article class="box style2">
-								<a href="images/MCMC.gif" target="_blank" rel="noopener noreferrer" class="image featured"><img src="images/MCMC.jpg" data-gif-src="images/MCMC.gif" alt="" /></a>
-								<h3><a href="#" target="_blank" rel="noopener noreferrer">Bayesian inference and Machine Learning</a></h3>
-								<p>How do we extract information from complex data using advanced statistical methods?</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-								<article class="box style2">
-								<a href="https://arxiv.org/pdf/2110.13919" target="_blank" rel="noopener noreferrer" class="image featured"><img src="images/vcb.jpg" alt="" /></a>
-								<h3><a href="#" target="_blank" rel="noopener noreferrer">The Dark Sector</a></h3>
-								<p>Testing Dark Matter and Dark Energy with early structure formation</p>
-							</article>
-						</div>
-					</div>
-				</div>
-			</article>		
-			
-			
-			<!-- Publications -->
-			<article id="Publications" class="wrapper style3">
-				<div class="container">
-					<header>
-						<h2>Peer-reviewed publication summary <em style="font-size: smaller;">(last updated Dec 2025)</em></h2>
+						<h2>The cosmic 21cm signal</h2>
 					</header>
-						<div class="pub-stats">
-							<p>
-								<strong>&gt;200</strong> peer-reviewed publications since <strong>2004</strong><br>
-								<strong>&gt;14k citations</strong>; <strong>3.4k</strong> citations normalized by author number; (source: NASA ADS Database)<br>
-								h-index of <strong>68</strong>; i10 index of <strong>166</strong>; i100 index (&gt;100 citations) of <strong>43</strong> (source: NASA ADS Database)
-							</p>
-							<p>
-								See full list of publications on <a href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3A%20astronomy&q=author%3A(%22mesinger%2C%20a.%22)&sort=citation_count%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer">NASA ADS</a>.
-							</p>
-						</div>
-				</div>
-				<br>
-				<div class="container">
-					<header>
-						<h2>Books</h2>
-					</header>
-					<div class="books">
-						<p class="book-entry"><strong><a href="https://link.springer.com/book/10.1007/978-3-319-21957-8" target="_blank" rel="noopener noreferrer">Understanding the Epoch of Cosmic Reionization: Challenges and Progress</a></strong>,<br> Astrophysics and Space Science Library, Springer Publishing (2016). ISBN 978-3-319-21957-8</p>
-						<p class="book-entry"><strong><a href="https://iopscience.iop.org/book/edit/978-0-7503-2236-2" target="_blank" rel="noopener noreferrer">The Cosmic 21-cm Revolution: charting the first billion years of our Universe</a></strong>,<br> Institute of Physics (IOP) Publishing (2019). ISBN 9780750322348</p>
-					</div>
+						<header>
+			<p>The 21-cm line corresponds to the spin-flip transition in the ground state of neutral hydrogen.  It is widely used to study HI in our galaxy and nearby galaxies, but it's potential in cosmology is unparalleled.
+Before the completion of reionization, the entire Universe was filled with neutral hydrogen.  The 21-cm line can be used to map out the temperature, ionization and density of the intergalactic medium (IGM) during this period that spans over half of the observable Universe.</p>
+
+							<p>Such a dataset will revolutionize our understanding not just of how reionization unfolded, but also of the sources that were responsible.
+ 							The faintest 99% of the galaxies, unseen by even the most powerful telescopes like the JWST, are expected to provide the majority of the ionizing photons responsible for cosmic reionization, as well as the X-ray photons responsible for heating the Universe during the Cosmic Dawn.
+The properties of these first galaxies (e.g. typical masses, stellar populations, X-ray
+luminosities) are <a href="movies/parameter_variation.mp4" target="_blank" rel="noopener noreferrer">encoded in the timing and spatial structure of the 21-cm signal.</a></p>
+
+<p>The 21-cm signal also gives
+insights into fundamental cosmology, allowing us to study the matter distribution, the Hubble
+tension through acoustic oscillations, and exotic dark matter heating / cooling processes.</p>
+
+<p><b>The signal is there and it is only a matter of time until we use it to map out our Universe.</b> Current interferometers are pushing towards a statistical detection, but in the following
+decade the multi-billion euro Square Kilometer Array (SKA) observatory has the potential to make a 3D map of the majority of our Universe: a cosmological dataset of unparalleled potential.</p>
+
+<br>
+<p>My collaborators and I are helping these efforts on several fronts, 
+	including developing <a href="https://github.com/21cmfast/21cmFAST" target="_blank" rel="noopener noreferrer">simulation tools</a>, 
+	interpreting current <a href="https://ui.adsabs.harvard.edu/abs/2023ApJ...945..124H/abstract" target="_blank" rel="noopener noreferrer">upper limits using a multi-tracer approach</a>, 
+	paving the way for the <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...699A.131G/abstract" target="_blank" rel="noopener noreferrer">first, credible detection</a>,
+	and preparing for <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...688A.199P/abstract" target="_blank" rel="noopener noreferrer">future transformative images</a> from the SKA.</p>
+
+	<br>
+<p>Here are some relevant images and movies:</p>
+			<ul class="media-list">
+		<li><a href="movies/fiducial_withps.avi" target="_blank" rel="noopener noreferrer">Redshift evolution of a 2D slice</a> through the EOS simulation of <a href="https://ui.adsabs.harvard.edu/abs/2016MNRAS.459.2342M/abstract" target="_blank" rel="noopener noreferrer">Mesinger et al. (2016)</a> with the corresponding 1D power spectrum.</li>
+		<li><a href="images/Annot_strip_SmallHII_1024.png" target="_blank" rel="noopener noreferrer">Annotated slices through the lightcone (including the global signal and power spectrum)</a> of the "Faint galaxy" model from EOS</li>
+		<li><a href="images/Annot_strip_LargeHII_1024.png" target="_blank" rel="noopener noreferrer">Annotated slices through the lightcone (including the global signal and power spectrum)</a> of the "Bright galaxy" model from EOS</li>
+		<li><a href="images/Lightcone_Park.jpg" target="_blank" rel="noopener noreferrer">Slice through the lightcone</a> of the fiducial <a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.484..933P/abstract" target="_blank" rel="noopener noreferrer">Park et al. (2019)</a> model</li>
+		<li><a href="movies/parameter_variation.mp4" target="_blank" rel="noopener noreferrer">Movie showing how varying astrophysical parameters</a> affects the 21-cm signal and UV luminosity functions. (<a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.484..933P/abstract" target="_blank" rel="noopener noreferrer">Park et al. 2019)</a>.</li>
+	</ul>
+</header>
 				</div>
 			</article>
-				<footer>
-						<ul id="copyright">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
+				
+			<footer>
+			</footer>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
