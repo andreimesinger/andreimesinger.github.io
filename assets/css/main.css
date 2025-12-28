@@ -239,6 +239,16 @@ input, select, textarea {
 	margin-left: 1.25em; /* indent the bullets slightly under the header */
 }
 
+/* Media list: default styling for images/movies lists used across Research pages */
+.media-list {
+	list-style: disc;
+	list-style-position: outside;
+	padding-left: 3.8rem;
+	margin-left: 0;
+	text-align: left;
+}
+.media-list li { margin-bottom: 0.6rem; }
+
 /* Navigation submenu (simple dropdown) */
 #nav ul.container { position: relative; }
 #nav ul.container li { position: relative; }
