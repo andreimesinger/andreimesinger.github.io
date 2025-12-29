@@ -124,7 +124,11 @@
 						<h2>21cmFAST</h2>
 					</header>
 				</div>
-										UNDER CONSTRUCTION
+
+					<p>
+						<span class="image left"><img src="images/frame_box.gif" alt="frame box" style="width:80%;height:auto;max-width:500px;" data-gif-duration="20000" /></span>
+						This public code uses a combination of perturbation theory, Lagrangian + merger tree halo finding and approximate cosmological radiative transfer to compute lightcones of galaxy fields and the intergalactic medium (IGM). It is extremely efficient (~1 core hour per realization), allowing us to sample a wide parameter space of astro+cosmo uncertainties, while maintaining accuracy at the moderate to large scales probed by EoR observations. As such, it is being used by researchers in over 30 countries to interpret diverse datasets (map), including the Lyman alpha forest, UV luminosity functions, Lyman alpha emitter clustering and number evolution, CMB primary and secondary anisotropies caused by the EoR, Lyman alpha damping wings in quasar and galaxy spectra, the cosmic 21cm signal, etc.
+					</p>
 
 			</article>
 				
@@ -179,6 +183,19 @@
 					} catch(e){}
 				});
 			});
+			});
+			</script>
+			<!-- Restart long GIFs after their duration to loop once finished -->
+			<script>
+			document.addEventListener('DOMContentLoaded', function(){
+			  var gifs = document.querySelectorAll('img[data-gif-duration]');
+			  gifs.forEach(function(img){
+			    var dur = parseInt(img.dataset.gifDuration, 10) || 20000;
+			    if(!img.dataset._origGifSrc) img.dataset._origGifSrc = img.src.split('?')[0];
+			    setInterval(function(){
+			      try{ img.src = img.dataset._origGifSrc + '?_=' + Date.now(); }catch(e){}
+			    }, dur);
+			  });
 			});
 			</script>
 
