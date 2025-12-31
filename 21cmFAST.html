@@ -52,7 +52,12 @@
             	}
 
 			/* Prevent small remaining horizontal overflow only on this page */
-			html, body { overflow-x: hidden; height: 100%; }
+			html, body { overflow-x: hidden; height: 100%; background-color: #000 !important; color: #e6e6e6 !important; }
+
+			/* Make main page containers transparent so the black background is visible */
+			.wrapper.style4, #Research, .wrapper.style4 .container { background: transparent !important; }
+			/* Ensure footer doesn't override the page background unless it has its own image */
+			footer { background-color: transparent !important; }
 
 			/* Ensure footer reaches the bottom: make page a column flex layout (scoped to this file) */
 			body { display: flex; flex-direction: column; min-height: 100vh; }
@@ -92,7 +97,102 @@
 				align-items: center;
 				flex-wrap: wrap;
 			}
-            </style>
+
+
+			/* Helios-style carousel (scoped) */
+			.carousel {
+				position: relative;
+				overflow: hidden;
+				padding: 1.5em 0;
+				margin-bottom: 1rem;
+			}
+
+			.carousel .reel {
+				white-space: nowrap;
+				position: relative;
+				-webkit-overflow-scrolling: touch;
+				overflow-x: auto;
+				padding: 0 1.5em;
+			}
+
+			.carousel article {
+				display: inline-block;
+				width: 18em;
+				background: transparent;
+				text-align: center;
+				padding: 0 1em 1rem 1em;
+				margin: 0 1.25em 0 0;
+				white-space: normal;
+			}
+
+			.carousel article .image.featured img {
+				width: 100%;
+				height: 11.25em; /* fixed visual height */
+				object-fit: cover;
+				display: block;
+				border-radius: 6px;
+			}
+
+			.carousel article header h3 {
+				margin: 0.65rem 0 0.35rem 0;
+				font-size: 1rem;
+			}
+
+			.carousel article p {
+				margin: 0;
+				font-size: 0.95rem;
+				color: #dcdcdc;
+			}
+
+			/* Arrow controls (simple helio-like visuals) */
+			.carousel .forward,
+			.carousel .backward {
+				position: absolute;
+				top: 50%;
+				width: 3.5em;
+				height: 3.5em;
+				margin-top: -1.75em;
+				cursor: pointer;
+				z-index: 5;
+			}
+
+			.carousel .forward::before,
+			.carousel .backward::before {
+				content: '';
+				display: block;
+				width: 3.5em;
+				height: 3.5em;
+				border-radius: 100%;
+				background-color: rgba(48,48,48,0.6);
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			.carousel .forward::after,
+			.carousel .backward::after {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: #fff;
+				font-size: 1.25rem;
+			}
+
+			.carousel .forward::after { content: '›'; }
+			.carousel .backward::after { content: '‹'; }
+
+			.carousel .forward { right: 0.5rem; }
+			.carousel .backward { left: 0.5rem; }
+
+			/* Center only the carousel descriptions on this page; keep main paragraphs left-aligned */
+			.wrapper.style4 p { text-align: left; }
+			.carousel article p { text-align: center; }
+
+			/* Nudge the frame_box.gif image slightly upward so it's under the header */
+			#Research .image.left img.lift-up { position: relative; top: -3.8rem; }
+
+			</style>
 	</head>
 	<body class="is-preload">
 
@@ -124,12 +224,120 @@
 						<h2>21cmFAST</h2>
 					</header>
 				</div>
+			    <p>
+				    <a href="images/frame_box.gif" target="_blank" rel="noopener noreferrer" class="image featured">
+<span class="image left"><img class="lift-up" src="images/frame_box.gif" alt="frame box" style="width:80%;height:auto;max-width:500px;" data-gif-duration="20000" /></span></a>
+					<a href="https://github.com/21cmfast/21cmFAST" target="_blank" rel="noopener noreferrer"><b>21cmFAST</b></a> is a public, "semi-numerical" simulation code to efficiently and accurately compute large-scale cosmological fields during the first billion years.  
+					Originally developed by <a href="https://ui.adsabs.harvard.edu/abs/2007ApJ...669..663M/abstract" target="_blank" rel="noopener noreferrer">Mesinger & Furlanetto (2007)</a> and <a href="https://ui.adsabs.harvard.edu/abs/2011MNRAS.411..955M/abstract" target="_blank" rel="noopener noreferrer">Mesinger, Furlanetto, and Cen (2011)</a>, it is under continuous development by the <a href="https://github.com/21cmfast" target="_blank" rel="noopener noreferrer">21cmFAST collaboration</a>. 
+					It uses a combination of perturbation theory, Lagrangian + merger tree halo finding and approximate cosmological radiative transfer to compute 3D realizations and lightcones of galaxy fields, associated radiation fields, and the intergalactic medium (IGM). It is extremely efficient (~1 core hour for a typical run), allowing the user to sample a wide parameter space of astrophysical and cosmological uncertainties, while maintaining accuracy at the moderate to large scales probed by most observations. As such, it is being used by researchers in over 
+					~30 countries to interpret diverse datasets, including 
+					<a href="https://ui.adsabs.harvard.edu/abs/2025PASA...42...49Q/abstract" target="_blank" rel="noopener noreferrer">the Lyman alpha forest</a>, 
+					<a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.484..933P/abstract" target="_blank" rel="noopener noreferrer">UV luminosity functions</a>, 
+					Lyman alpha emitter 
+					<a href="https://ui.adsabs.harvard.edu/abs/2025ApJS..277...37U/abstract" target="_blank" rel="noopener noreferrer">clustering and number evolution</a>, 
+					CMB 
+					<a href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.499..550Q/abstract" target="_blank" rel="noopener noreferrer">primary</a> and 
+					<a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.526.3170N/abstract" target="_blank" rel="noopener noreferrer">secondary</a> anisotropies caused by the EoR, 
+					 anisotropies caused by the EoR, 
+					Lyman alpha damping wings in 
+					<a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.466.4239G/abstract" target="_blank" rel="noopener noreferrer">quasar</a> and 
+					<a href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.446..566M/abstract" target="_blank" rel="noopener noreferrer">galaxy</a>
+					 spectra, 
+					the 
+					<a href="https://ui.adsabs.harvard.edu/abs/2022ApJ...924...51A/abstract" target="_blank" rel="noopener noreferrer">cosmic 21cm signal</a>, etc.
+			</p>
+				<br><br>
+				<h3>Related media:</h3>
+				<!-- Helio-style carousel (first 4 images from images/) -->
+				<section class="carousel">
+					<span class="backward" aria-hidden="true"></span>
+					<span class="forward" aria-hidden="true"></span>
+					<div class="reel">
+						<article>
+							<a href="movies/Qin_parameter_variation.mp4" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/Qin_parameter_variation.jpg" alt="parameter variation"/></a>
+							<header>
+								<h4><a href="movies/Qin_parameter_variation.mp4" target="_blank" rel="noopener noreferrer">Varying galaxy parameters</a></h4>
+							</header>
+							Impact of astro parameters on IGM properties, Lya forest, CMB EE PS, and galaxy UV LFs (credit: Y. Qin)
+						</article>
 
-					<p>
-						<span class="image left"><img src="images/frame_box.gif" alt="frame box" style="width:80%;height:auto;max-width:500px;" data-gif-duration="20000" /></span>
-						This public code uses a combination of perturbation theory, Lagrangian + merger tree halo finding and approximate cosmological radiative transfer to compute lightcones of galaxy fields and the intergalactic medium (IGM). It is extremely efficient (~1 core hour per realization), allowing us to sample a wide parameter space of astro+cosmo uncertainties, while maintaining accuracy at the moderate to large scales probed by EoR observations. As such, it is being used by researchers in over 30 countries to interpret diverse datasets (map), including the Lyman alpha forest, UV luminosity functions, Lyman alpha emitter clustering and number evolution, CMB primary and secondary anisotropies caused by the EoR, Lyman alpha damping wings in quasar and galaxy spectra, the cosmic 21cm signal, etc.
-					</p>
 
+						<article>
+							<a href="movies/parameter_variation.mp4" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/parameter_variation.jpg" alt="parameter variation"/></a>
+							<header>
+								<h4><a href="movies/parameter_variation.mp4" target="_blank" rel="noopener noreferrer">Varying galaxy parameters</a></h4>
+							</header>
+							Impact of astro parameters on the 21cm signal and galaxy UV LFs (credit: J. Park)
+						</article>
+						
+						<article>
+							<a href="images/gal_21cm_LC.jpg" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/gal_21cm_LC.jpg" alt="galaxy 21cm lightcone"/></a>
+							<header>
+								<h4><a href="images/gal_21cm_LC.jpg" target="_blank" rel="noopener noreferrer">Galaxy and 21cm lightcone</a></h4>
+							</header>
+							Lightcone of bright galaxies and the corresponding 21cm signal (credit: N. Triantafyllou).
+						</article>
+						
+						<article>
+							<a href="movies/fiducial_withps.avi" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/slice_ps.gif" alt="movie 2D slice evolution"/></a>
+							<header>
+								<h4><a href="movies/fiducial_withps.avi" target="_blank" rel="noopener noreferrer">21cm slice and PS evolution</a></h4>
+							</header>
+							21cm slice and 1D power spectrum from the Evolution of 21cm Structure (EOS) 2016
+						</article>
+						
+						<article>
+							<a href="images/forest.jpg" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/forest.jpg" alt="forest"/></a>
+							<header>
+								<h4><a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.506.2390Q/abstract" target="_blank" rel="noopener noreferrer">IGM properties and Lya forest</a></h4>
+							</header>
+	 						Lightcones of IGM properties and the Lyman alpha forest						
+						</article>
+
+						<article>
+							<a href="images/workflow.jpg" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/workflow.jpg" alt="schematic workflow"/></a>
+							<header>
+								<h4><a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...701A.236D/abstract" target="_blank" rel="noopener noreferrer">Schematic workflow</a></h4>
+							</header>
+	 						Schematic workflow of forward-modeling with the 21cmFAST simulator						
+						</article>
+
+						<article>
+							<a href="images/usage_map.jpg" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/usage_map.jpg" alt="usage map"/></a>
+							<header>
+								<h4><a href="images/usage_map.jpg" target="_blank" rel="noopener noreferrer">Map of known 21cm users</a></h4>
+							</header>
+						Approximate map of known 21cmFAST users
+						</article>
+
+						<article>
+							<a href="images/Annot_strip_LargeHII_1024.png" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/Annot_strip_LargeHII_1024.png" alt="large HII regions LC"/></a>
+							<header>
+								<h4><a href="images/Annot_strip_LargeHII_1024.png" target="_blank" rel="noopener noreferrer">"Bright galaxy" 21cm LC</a></h4>
+							</header>
+	 						Annotated 21cm lightcone corresponding to the "Bright galaxy" model of EOS2016						
+						</article>
+						
+						<article>
+							<a href="images/Annot_strip_SmallHII_1024.png" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/Annot_strip_SmallHII_1024.png" alt="small HII regions LC"/></a>
+							<header>
+								<h4><a href="images/Annot_strip_SmallHII_1024.png" target="_blank" rel="noopener noreferrer">"Faint galaxy" 21cm LC</a></h4>
+							</header>
+	 						Annotated 21cm lightcone corresponding to the "Faint galaxy" model of EOS2016
+						</article>
+
+						<article>
+							<a href="images/comparison.jpg" class="image featured" target="_blank" rel="noopener noreferrer"><img src="images/comparison.jpg" alt="comparison"/></a>
+							<header>
+								<h4><a href="https://ui.adsabs.harvard.edu/abs/2011MNRAS.411..955M/abstract" target="_blank" rel="noopener noreferrer">Hydro+RT vs 21cmFAST</a></h4>
+							</header>
+	 						21cm maps from hydro+RT (left; ~1e7 core hours) vs 21cmFAST (right; ~1 core hour) 
+						</article>
+
+					</div>
+				</section>
+
+	
 			</article>
 				
 			<footer>
@@ -198,6 +406,131 @@
 			  });
 			});
 			</script>
+						<script>
+						document.addEventListener('DOMContentLoaded', function(){
+							document.querySelectorAll('.carousel').forEach(function(carousel){
+								var reel = carousel.querySelector('.reel');
+								var forward = carousel.querySelector('.forward');
+								var backward = carousel.querySelector('.backward');
+								if(!reel) return;
+
+								// Build a transform-based track (two copies) for perfect continuous scrolling
+								var items = Array.from(reel.querySelectorAll('article'));
+								if(items.length === 0) return;
+
+								var track = document.createElement('div');
+								track.className = 'carousel-track';
+								track.style.display = 'inline-flex';
+								track.style.alignItems = 'stretch';
+								track.style.willChange = 'transform';
+
+								// move original items into track
+								items.forEach(function(it){ track.appendChild(it); });
+								// clone items for seamless loop
+								items.forEach(function(it){ track.appendChild(it.cloneNode(true)); });
+
+								// clear reel and append track
+								reel.innerHTML = '';
+								reel.appendChild(track);
+
+								// dimensions
+								var itemEl = track.querySelector('article');
+								var gap = 0;
+								function computeDimensions(){
+									var r = itemEl.getBoundingClientRect();
+									var style = window.getComputedStyle(itemEl);
+									gap = parseFloat(style.marginRight) || 0;
+									itemWidth = Math.round(r.width + gap);
+									totalWidth = track.scrollWidth;
+									half = Math.round(totalWidth / 2);
+								}
+								var itemWidth = 0, totalWidth = 0, half = 0;
+								computeDimensions();
+								window.addEventListener('resize', computeDimensions);
+
+								// transform position (px from start), kept in [0, half)
+								var pos = 0;
+								var running = true; // used to pause/resume during animations or hover
+								var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+								var autoplay = false; // disable automatic autoscroll
+								var speedPxPerSec = 40; // default autoplay speed (inactive when autoplay=false)
+								var fastMultiplier = 3;
+
+								// RAF loop
+								var last = performance.now();
+								function loop(now){
+									var dt = now - last;
+									last = now;
+									// Only advance automatically when autoplay is enabled
+									if(autoplay && running && !isTouch){
+										pos += speedPxPerSec * (dt / 1000);
+										if(pos >= half) pos -= half;
+										track.style.transform = 'translateX(' + (-pos) + 'px)';
+									}
+									requestAnimationFrame(loop);
+								}
+								requestAnimationFrame(loop);
+
+								function pause(){ running = false; }
+								function resume(){ running = true; last = performance.now(); }
+
+								// hover pause
+								carousel.addEventListener('mouseenter', pause);
+								carousel.addEventListener('mouseleave', resume);
+
+								// fast scroll on arrow hover
+								var fastTimer = null;
+								function startFast(dir){ clearInterval(fastTimer); fastTimer = setInterval(function(){
+									pos += dir * (speedPxPerSec * fastMultiplier) * (10 / 1000);
+									if(pos >= half) pos -= half;
+									if(pos < 0) pos += half;
+									track.style.transform = 'translateX(' + (-pos) + 'px)';
+								}, 10); }
+								function stopFast(){ clearInterval(fastTimer); fastTimer = null; }
+								forward && forward.addEventListener('mouseenter', function(){ startFast(1); });
+								forward && forward.addEventListener('mouseleave', function(){ stopFast(); });
+								backward && backward.addEventListener('mouseenter', function(){ startFast(-1); });
+								backward && backward.addEventListener('mouseleave', function(){ stopFast(); });
+
+								// step animation (click)
+								function animateToTarget(targetPos, duration, cb){
+									var startPos = pos;
+									// normalize into same base
+									var halfNow = half || Math.round(track.scrollWidth / 2);
+									var vs = startPos % halfNow; if(vs < 0) vs += halfNow;
+									var vt = targetPos % halfNow; if(vt < 0) vt += halfNow;
+									var delta = vt - vs;
+									if(Math.abs(delta) > halfNow/2){ if(delta > 0) delta -= halfNow; else delta += halfNow; }
+									var t0 = performance.now();
+									pause();
+									(function frame(now){
+										var t = Math.min(1, (now - t0) / duration);
+										var ease = 0.5 - Math.cos(Math.PI * t) / 2;
+										var current = vs + delta * ease;
+										// compute base aligned to startPos
+										var base = Math.floor(startPos / halfNow) * halfNow;
+										pos = base + current;
+										// keep pos in [0, half)
+										pos = ((pos % halfNow) + halfNow) % halfNow;
+										track.style.transform = 'translateX(' + (-pos) + 'px)';
+										if(t < 1) requestAnimationFrame(frame);
+										else { if(cb) cb(); resume(); }
+									})(performance.now());
+								}
+
+								function step(dir){
+									computeDimensions();
+									var target = pos + dir * itemWidth;
+									animateToTarget(target, 360);
+								}
+
+								forward && forward.addEventListener('click', function(e){ e.preventDefault(); step(1); });
+								backward && backward.addEventListener('click', function(e){ e.preventDefault(); step(-1); });
+
+							});
+						});
+						</script>
+
 
 	</body>
 </html>
