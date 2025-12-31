@@ -189,6 +189,9 @@
 			.wrapper.style4 p { text-align: left; }
 			.carousel article p { text-align: center; }
 
+			/* Increase intro paragraph font size on this page only */
+			#Research > p.intro-large { font-size: 1.25rem; }
+
 			/* Nudge the frame_box.gif image slightly upward so it's under the header */
 			#Research .image.left img.lift-up { position: relative; top: -3.8rem; }
 
@@ -224,10 +227,11 @@
 						<h2>21cmFAST</h2>
 					</header>
 				</div>
-			    <p>
+			    
 				    <a href="images/frame_box.gif" target="_blank" rel="noopener noreferrer" class="image featured">
 <span class="image left"><img class="lift-up" src="images/frame_box.gif" alt="frame box" style="width:80%;height:auto;max-width:500px;" data-gif-duration="20000" /></span></a>
-					<a href="https://github.com/21cmfast/21cmFAST" target="_blank" rel="noopener noreferrer"><b>21cmFAST</b></a> is a public, "semi-numerical" simulation code to efficiently and accurately compute large-scale cosmological fields during the first billion years.  
+					
+			<p class="intro-large"><a href="https://github.com/21cmfast/21cmFAST" target="_blank" rel="noopener noreferrer"><b>21cmFAST</b></a> is a public, "semi-numerical" simulation code to efficiently and accurately compute large-scale cosmological fields during the first billion years.  
 					Originally developed by <a href="https://ui.adsabs.harvard.edu/abs/2007ApJ...669..663M/abstract" target="_blank" rel="noopener noreferrer">Mesinger & Furlanetto (2007)</a> and <a href="https://ui.adsabs.harvard.edu/abs/2011MNRAS.411..955M/abstract" target="_blank" rel="noopener noreferrer">Mesinger, Furlanetto, and Cen (2011)</a>, it is under continuous development by the <a href="https://github.com/21cmfast" target="_blank" rel="noopener noreferrer">21cmFAST collaboration</a>. 
 					It uses a combination of perturbation theory, Lagrangian + merger tree halo finding and approximate cosmological radiative transfer to compute 3D realizations and lightcones of galaxy fields, associated radiation fields, and the intergalactic medium (IGM). It is extremely efficient (~1 core hour for a typical run), allowing the user to sample a wide parameter space of astrophysical and cosmological uncertainties, while maintaining accuracy at the moderate to large scales probed by most observations. As such, it is being used by researchers in over 
 					~30 countries to interpret diverse datasets, including 
@@ -336,10 +340,8 @@
 
 					</div>
 				</section>
-
-	
 			</article>
-				
+				<br>
 			<footer>
 			</footer>
 
