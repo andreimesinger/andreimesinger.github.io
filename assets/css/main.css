@@ -2162,7 +2162,7 @@ input, select, textarea {
 			line-height: 1.6;
 			text-shadow: -1px -1px 0px #181818;
 			/* Reduce vertical padding specifically for dark wrapper sections */
-			padding: 6em 0; /* was 8em on .wrapper - reduce top/bottom */
+			padding: 5.5em 0; /* was 8em on .wrapper - reduce top/bottom */
 		}
 
 			/* Left-align body copy inside dark wrappers */
