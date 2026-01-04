@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andreimesinger.github.io/sitemap.xml
